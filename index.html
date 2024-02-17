@@ -14,7 +14,7 @@
     <!-- Customs styles -->
     <link rel="stylesheet" href="styles/style.css" />
   </head>
-  <body>
+  <body class="font-raleway">
     <header class="container mx-auto px-4">
       <!-- Navbar section start -->
       <div class="navbar bg-base-100">
@@ -67,7 +67,10 @@
       <!-- ********************************************************** -->
       <!-- Banner section start -->
       <section class="mt-8">
-        <div class="hero relative" style="background-image: url(./images/banner.png)">
+        <div
+          class="hero relative"
+          style="background-image: url(./images/banner.png)"
+        >
           <div class="hero-overlay bg-opacity-40 rounded-xl max-h-full"></div>
           <div
             class="hero-content text-center text-white pt-16 pb-32 rounded-xl"
@@ -83,7 +86,7 @@
                 journeys.
               </p>
               <a href="#paribahan"
-                ><button class="btn bg-[#1DD100] border-none">
+                ><button class="btn bg-[#1DD100] border-none font-bold">
                   Buy Tickets
                 </button></a
               >
@@ -100,7 +103,7 @@
               <img src="./images/people.png" alt="people" />
             </figure>
             <div class="card-body">
-              <h2 class="card-title">500K+</h2>
+              <h2 class="card-title font-inter font-bold">500K+</h2>
               <p>Registered users</p>
             </div>
           </div>
@@ -112,7 +115,7 @@
               <img src="./images/ticket-cupon.png" alt="ticket" />
             </figure>
             <div class="card-body">
-              <h2 class="card-title">1.7 lacks</h2>
+              <h2 class="card-title font-inter font-bold">1.7 lacks</h2>
               <p>Tickets sold</p>
             </div>
           </div>
@@ -124,7 +127,7 @@
               <img src="./images/stoppage.png" alt="people" />
             </figure>
             <div class="card-body">
-              <h2 class="card-title">80K+</h2>
+              <h2 class="card-title font-inter font-bold">80K+</h2>
               <p>Rental partners</p>
             </div>
           </div>
@@ -132,7 +135,48 @@
       </section>
       <!-- Banner section end -->
     </header>
-    <main></main>
+    <main class="container mx-auto px-4 mt-32">
+      <section>
+        <h2 class="text-4xl text-center font-bold">Best offers for you</h2>
+        <div class="my-12 flex flex-col md:flex-row gap-6">
+          <div class="flex flex-1 items-center px-12 bg-[#FFBF0F] rounded-3xl">
+            <div class="flex-1">
+              <h3 class="text-3xl font-extrabold font-inter">15% OFF</h3>
+              <p>on your next purchase</p>
+              <p>use by January 2024</p>
+            </div>
+            <div class="flex flex-row items-center">
+              <img src="./images/cupon-devider.png" alt="coupon devider" />
+              <div>
+                <h3 class="text-3xl font-bold">NEW15</h3>
+                <p>Coupon Code</p>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-1 items-center px-12 bg-[#F78C9C] rounded-3xl">
+            <div class="flex-1">
+              <h3 class="text-3xl font-extrabold font-inter">20% OFF</h3>
+              <p>on your next purchase</p>
+              <p>use by January 2024</p>
+            </div>
+            <div class="flex flex-row items-center">
+              <img src="./images/cupon-devider.png" alt="coupon devider" />
+              <div>
+                <h3 class="text-3xl font-bold">Couple 20</h3>
+                <p>Coupon Code</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center">
+          <button
+            class="btn bg-transparent text-[#1DD100] border border-[#1DD100] text-center"
+          >
+            See All Offers
+          </button>
+        </div>
+      </section>
+    </main>
     <footer></footer>
     <script src="js/index.js"></script>
     <script src="js/utility.js"></script>
