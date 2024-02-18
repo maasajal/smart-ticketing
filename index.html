@@ -376,9 +376,8 @@
           <div class="md:col-span-2 md:border-l-2 border-dashed pl-5">
             <h3 class="mb-3 border-b border-dashed pb-5">Select your seat</h3>
             <div class="bg-[#F7F8F8] rounded-3xl p-8">
-              <div class="overflow-x-auto">
+              <!-- <div class="overflow-x-auto">
                 <table class="table">
-                  <!-- head -->
                   <thead>
                     <tr>
                       <th>
@@ -400,18 +399,32 @@
                     </tr>
                   </tbody>
                 </table>
+              </div> -->
+              <div id="seat-details" class="divide-y divide-dashed">
+                <p class="flex justify-between">
+                  <b
+                    >Seat<span
+                      id="seat-count"
+                      class="badge bg-[#1DD100] text-white font-bold"
+                      >2</span
+                    ></b
+                  >
+                  <b>Class</b>
+                  <b>Price</b>
+                </p>
+                <hr />
               </div>
               <hr />
               <div class="flex justify-between my-4">
                 <h3 class="text-xl">Total Price</h3>
-                <h3 class="text-xl">BDT <span id="total-price">1100</span></h3>
+                <h3 class="text-xl">BDT <span id="total-price"></span></h3>
               </div>
-              <div class="flex justify-between my-4 hidden">
+              <div id="discount" class="flex justify-between my-4 hidden">
                 <h3 class="text-xl">Discount</h3>
-                <h3 class="text-xl">BDT <span id="discount">0</span></h3>
+                <h3 class="text-xl">BDT <span id="discount-price"></span></h3>
               </div>
               <!-- coupon input -->
-              <div class="bg-white p-2 rounded-xl">
+              <div id="coupon" class="bg-white p-2 rounded-xl">
                 <input
                   id="coupon-code"
                   type="text"
@@ -419,6 +432,7 @@
                   class="input"
                 />
                 <button
+                  id="coupon-apply"
                   class="btn bg-[#1DD100] text-white font-inter font-semibold rounded-xl"
                 >
                   Apply
@@ -426,13 +440,11 @@
               </div>
               <div class="flex justify-between my-4">
                 <h3 class="text-xl">Grand Total</h3>
-                <h3 class="text-xl">
-                  BDT <span id="discounted-price">1100</span>
-                </h3>
+                <h3 class="text-xl">BDT <span id="discounted-price"></span></h3>
               </div>
             </div>
             <div>
-              <form>
+              <form action="">
                 <label class="form-control w-full">
                   <div class="label">
                     <span class="label-text font-semibold"
@@ -443,6 +455,7 @@
                     type="text"
                     placeholder="Enter your name"
                     class="input input-bordered w-full"
+                    required
                   />
                 </label>
                 <label class="form-control w-full">
@@ -456,6 +469,7 @@
                     type="number"
                     placeholder="Enter your phone number"
                     class="input input-bordered w-full"
+                    required
                   />
                 </label>
                 <label class="form-control w-full">
@@ -468,28 +482,25 @@
                     class="input input-bordered w-full"
                   />
                 </label>
-                <!-- <button
-                  id="submit"
-                  class="btn w-full my-5 bg-[#1DD100] text-white font-inter font-semibold rounded-xl"
-                >
-                  Next
-                </button> -->
+
                 <!-- The button to open modal -->
                 <label
                   for="my_modal_7"
                   id="submit"
                   class="btn w-full my-5 bg-[#1DD100] text-white font-inter font-semibold rounded-xl"
-                  >Next</label
-                >
+                  ><button>Next</button>
+                </label>
                 <!-- Modal content -->
                 <input type="checkbox" id="my_modal_7" class="modal-toggle" />
                 <div class="modal text-center" role="dialog">
                   <div class="modal-box">
-                    <img
-                      class="object-center"
-                      src="./images/success.png"
-                      alt="success"
-                    />
+                    <div class="flex justify-center mb-5">
+                      <img
+                        class="object-center"
+                        src="./images/success.png"
+                        alt="success"
+                      />
+                    </div>
                     <h3 class="text-lg font-bold uppercase text-[#27AE60]">
                       Success
                     </h3>
@@ -498,12 +509,13 @@
                       to find the best service and deals for you. Shortly you
                       will find a confirmation in your email.
                     </p>
-                    <button
+                    <a
+                      href="#paribahan"
                       id="continue"
                       class="btn my-5 px-20 bg-[#27AE60] text-white font-inter font-semibold rounded-full"
                     >
                       Continue
-                    </button>
+                    </a>
                   </div>
                   <label class="modal-backdrop" for="my_modal_7">Close</label>
                 </div>
