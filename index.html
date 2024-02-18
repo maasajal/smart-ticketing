@@ -179,7 +179,7 @@
       <!-- Ticket details and seat plan -->
       <section
         id="paribahan"
-        class="my-32 p-32 bg-[#F7F8F8] border-t-2 border-[#1DD100] rounded-tl-[88px] rounded-tr-[88px]"
+        class="mt-32 p-32 bg-[#F7F8F8] border-t-2 border-[#1DD100] rounded-tl-[88px] rounded-tr-[88px]"
       >
         <div class="text-center">
           <h2 class="text-5xl font-bold">Panku Paribahan</h2>
@@ -189,7 +189,7 @@
           </p>
         </div>
         <!-- Example ticket -->
-        <div class="flex flex-1 pr-12 rounded-3xl bg-white">
+        <div class="flex flex-col md:flex-row gap-5 pr-12 rounded-3xl bg-white">
           <div class="flex-1 p-8 gap-5">
             <div class="flex flex-col md:flex-row justify-between">
               <div class="flex gap-4 w-full">
@@ -217,13 +217,14 @@
                 <p>Departure Time</p>
                 <p>9:00 PM</p>
               </div>
-              <div class="flex flex-col md:flex-row justify-between pt-5">
+              <div class="flex flex-wrap justify-between pt-5 gap-5">
                 <button class="btn">Boarding Point - Laxmipur</button>
                 <button class="btn">Dropping Point - Bogura</button>
                 <button class="btn">Est. Time - 11 Hour</button>
               </div>
             </div>
           </div>
+          <!-- Ticket price -->
           <div class="flex flex-row items-center">
             <img src="./images/info-devider.png" alt="info devider" />
             <div class="flex flex-col items-center">
@@ -233,6 +234,135 @@
             </div>
           </div>
         </div>
+        <!-- Select your seat: seat plan section start -->
+        <section
+          class="grid grid-rows-1 md:grid-cols-5 gap-5 my-5 p-5 bg-white rounded-3xl font-inter"
+        >
+          <!-- seat selection -->
+          <div class="md:col-span-3">
+            <h3 class="mb-3">Select your seat</h3>
+            <div class="flex justify-between border-y border-dashed py-3">
+              <div class="flex gap-2">
+                <img src="./images/seat-gray.png" alt="sear" />
+                <p>Available</p>
+              </div>
+              <div class="flex gap-2">
+                <img src="./images/seat-green-filled.png" alt="sear filled" />
+                <p class="text-[#1DD100]">Selected</p>
+              </div>
+            </div>
+          </div>
+          <!-- Calculate ticket price -->
+          <div class="md:col-span-2 md:border-l-2 border-dashed pl-5">
+            <h3 class="mb-3 border-b border-dashed pb-5">Select your seat</h3>
+            <div class="bg-[#F7F8F8] rounded-3xl p-8">
+              <div class="overflow-x-auto">
+                <table class="table">
+                  <!-- head -->
+                  <thead>
+                    <tr>
+                      <th>
+                        Seat<span
+                          id="seat-count"
+                          class="badge bg-[#1DD100] text-white font-bold"
+                          >2</span
+                        >
+                      </th>
+                      <th>Class</th>
+                      <th>Price</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><span id="selected-seat">A1</span></td>
+                      <td>Economy</td>
+                      <td>550</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <hr />
+              <div class="flex justify-between my-4">
+                <h3 class="text-xl">Total Price</h3>
+                <h3 class="text-xl">BDT <span id="total-price">1100</span></h3>
+              </div>
+              <div class="flex justify-between my-4 hidden">
+                <h3 class="text-xl">Discount</h3>
+                <h3 class="text-xl">BDT <span id="discount">0</span></h3>
+              </div>
+              <!-- coupon input -->
+              <div class="bg-white p-2 rounded-xl">
+                <input
+                  id="coupon-code"
+                  type="text"
+                  placeholder="Have any coupon?"
+                  class="input"
+                />
+                <button
+                  class="btn bg-[#1DD100] text-white font-inter font-semibold rounded-xl"
+                >
+                  Apply
+                </button>
+              </div>
+              <div class="flex justify-between my-4">
+                <h3 class="text-xl">Grand Total</h3>
+                <h3 class="text-xl">
+                  BDT <span id="discounted-price">1100</span>
+                </h3>
+              </div>
+            </div>
+            <div>
+              <form>
+                <label class="form-control w-full">
+                  <div class="label">
+                    <span class="label-text font-semibold"
+                      >Passenger name<sup>*</sup></span
+                    >
+                  </div>
+                  <input
+                    type="text"
+                    placeholder="Enter your name"
+                    class="input input-bordered w-full"
+                  />
+                </label>
+                <label class="form-control w-full">
+                  <div class="label">
+                    <span class="label-text font-semibold"
+                      >Phone Number<sup>*</sup></span
+                    >
+                  </div>
+                  <input
+                    id="phone-number"
+                    type="number"
+                    placeholder="Enter your phone number"
+                    class="input input-bordered w-full"
+                  />
+                </label>
+                <label class="form-control w-full">
+                  <div class="label">
+                    <span class="label-text font-semibold">Email ID</span>
+                  </div>
+                  <input
+                    type="number"
+                    placeholder="Enter your email id"
+                    class="input input-bordered w-full"
+                  />
+                </label>
+                <button
+                  id="submit"
+                  class="btn w-full my-5 bg-[#1DD100] text-white font-inter font-semibold rounded-xl"
+                >
+                  Next
+                </button>
+              </form>
+              <div class="flex justify-evenly">
+                <a class="underline" href="">Terms and Conditions</a>
+                <a class="underline" href="">Cancellation Policy</a>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Select your seat: seat plan section end -->
       </section>
     </main>
     <footer class="bg-[#030712] text-white">
@@ -255,7 +385,9 @@
           </div>
         </div>
       </div>
-      <div class="container mx-auto px-4 footer pt-8 pb-28 flex justify-between border-t border-dashed">
+      <div
+        class="container mx-auto px-4 footer pt-8 pb-28 flex justify-between border-t border-dashed"
+      >
         <p>@all rights reserved, e-Ticket services limited. 2024</p>
         <div class="flex gap-8">
           <a href="">Terms & condition</a>
