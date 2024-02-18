@@ -94,7 +94,9 @@
           </div>
         </div>
         <!-- banner card -->
-        <div class="flex flex-wrap gap-5 absolute -mt-16 left-20">
+        <div
+          class="flex flex-col md:flex-row gap-5 static md:absolute -mt-16 md:left-[12%]"
+        >
           <!-- first card -->
           <div
             class="card card-side bg-base-100 shadow-xl border-b-4 border-[#1DD100] px-5"
@@ -466,12 +468,45 @@
                     class="input input-bordered w-full"
                   />
                 </label>
-                <button
+                <!-- <button
                   id="submit"
                   class="btn w-full my-5 bg-[#1DD100] text-white font-inter font-semibold rounded-xl"
                 >
                   Next
-                </button>
+                </button> -->
+                <!-- The button to open modal -->
+                <label
+                  for="my_modal_7"
+                  id="submit"
+                  class="btn w-full my-5 bg-[#1DD100] text-white font-inter font-semibold rounded-xl"
+                  >Next</label
+                >
+                <!-- Modal content -->
+                <input type="checkbox" id="my_modal_7" class="modal-toggle" />
+                <div class="modal text-center" role="dialog">
+                  <div class="modal-box">
+                    <img
+                      class="object-center"
+                      src="./images/success.png"
+                      alt="success"
+                    />
+                    <h3 class="text-lg font-bold uppercase text-[#27AE60]">
+                      Success
+                    </h3>
+                    <p class="py-4">
+                      Thank you for Booking Our Bus Seats. We are working hard
+                      to find the best service and deals for you. Shortly you
+                      will find a confirmation in your email.
+                    </p>
+                    <button
+                      id="continue"
+                      class="btn my-5 px-20 bg-[#27AE60] text-white font-inter font-semibold rounded-full"
+                    >
+                      Continue
+                    </button>
+                  </div>
+                  <label class="modal-backdrop" for="my_modal_7">Close</label>
+                </div>
               </form>
               <div class="flex justify-evenly">
                 <a class="underline" href="">Terms and Conditions</a>
