@@ -9,7 +9,7 @@ function setTextElementValueById(elementId, value) {
 }
 function setBtnStyleById(elementId) {
   const element = document.getElementById(elementId);
-  element.classList.add("bg-[#1DD100]", "text-white", "btn-disabled");
+  element.classList.add("bg-[#1DD100]", "text-white");
 }
 function hideElementById(elementId) {
   const element = document.getElementById(elementId);

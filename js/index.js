@@ -1,61 +1,60 @@
 const seats = document.querySelectorAll(".kbd");
-// for (let seat of seats) {
-//   seat.addEventListener("click", function () {
-//     const selectedSeat = seat.innerText;
-//     // console.log(selectedSeat);
-//     setBgColorById(selectedSeat);
-//     const totalSeat = getTextElementValueById("seat-left");
-//     const seatLeft = totalSeat - 1;
-//     console.log(seatLeft);
-//   });
-// }
-let selectedSeats = 0;
+let selectedSeats = parseInt(document.getElementById("seat-count").innerText);
+let leftSeat = parseInt(document.getElementById("seat-left").innerText);
 let totalPrice = 0;
 for (let i = 0; i < seats.length; i++) {
   const seat = seats[i];
   seat.addEventListener("click", function () {
-
     const selectedSeat = seat.innerText;
-
     // created seat selection paragraph
     const seatDetails = document.getElementById("seat-details");
-    const p = document.createElement("p");
-    const spanSeat = document.createElement("span");
-    const spanEco = document.createElement("span");
-    const spanPrice = document.createElement("span");
-    spanSeat.innerText = selectedSeat;
-    spanEco.innerText = "Economy";
-    spanPrice.innerText = "550";
-
-    p.appendChild(spanSeat);
-    p.appendChild(spanEco);
-    p.appendChild(spanPrice);
-
-    // seatDetails.appendChild(p);
-    p.classList.add("flex", "justify-between");
 
     const isSeatSelected = seat.classList.contains("bg-[#1DD100]");
     if (isSeatSelected) {
+      // Count down how many seat left
       seat.classList.remove("bg-[#1DD100]", "text-white");
       selectedSeats--;
+      leftSeat++;
+      setTextElementValueById("seat-count", selectedSeats);
+      setTextElementValueById("seat-left", leftSeat);
+
+      // Remove the details of a selected seat
+      const pElement = seatDetails.getElementsByTagName("p");
+      for (let i = 0; i < pElement.length; i++) {
+        const spanSeat = pElement[i].getElementsByTagName("span")[0];
+        if (spanSeat.innerText === selectedSeat) {
+          seatDetails.removeChild(pElement[i]);
+          break;
+        }
+      }
     } else {
       if (selectedSeats >= 4) {
         alert("You cannot buy more than 4 seats");
         return;
       }
-      // setBtnStyleById(selectedSeat);
-      seat.classList.add("bg-[#1DD100]", "text-white");
+      // Count up how many seats selected
+      setBtnStyleById(selectedSeat);
       selectedSeats++;
+      leftSeat--;
+      setTextElementValueById("seat-count", selectedSeats);
+      setTextElementValueById("seat-left", leftSeat);
+
+      const p = document.createElement("p");
+      const spanSeat = document.createElement("span");
+      const spanEco = document.createElement("span");
+      const spanPrice = document.createElement("span");
+      spanSeat.innerText = selectedSeat;
+      spanEco.innerText = "Economy";
+      spanPrice.innerText = "550";
+
+      p.appendChild(spanSeat);
+      p.appendChild(spanEco);
+      p.appendChild(spanPrice);
+
+      // seatDetails.appendChild(p);
+      p.classList.add("flex", "justify-between");
       seatDetails.appendChild(p);
     }
-    // Count down how many seat left
-    let initialSeat = getTextElementValueById("seat-left");
-    const leftSeat = initialSeat - 1;
-    setTextElementValueById("seat-left", leftSeat);
-
-    // Count up how many seats selected
-    // selectedSeats++;
-    setTextElementValueById("seat-count", selectedSeats);
 
     // Price and discount calculation
     totalPrice += 550;
