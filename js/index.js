@@ -15,6 +15,8 @@ for (let i = 0; i < seats.length; i++) {
       seat.classList.remove("bg-[#1DD100]", "text-white");
       selectedSeats--;
       leftSeat++;
+      totalPrice -= 550;
+
       setTextElementValueById("seat-count", selectedSeats);
       setTextElementValueById("seat-left", leftSeat);
 
@@ -36,6 +38,7 @@ for (let i = 0; i < seats.length; i++) {
       setBtnStyleById(selectedSeat);
       selectedSeats++;
       leftSeat--;
+      totalPrice += 550;
       setTextElementValueById("seat-count", selectedSeats);
       setTextElementValueById("seat-left", leftSeat);
 
@@ -57,7 +60,6 @@ for (let i = 0; i < seats.length; i++) {
     }
 
     // Price and discount calculation
-    totalPrice += 550;
     setTextElementValueById("total-price", totalPrice);
     setTextElementValueById("discounted-price", totalPrice);
   });
