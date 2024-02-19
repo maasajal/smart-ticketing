@@ -1,4 +1,4 @@
-const seats = document.querySelectorAll(".kbd");
+const seats = document.querySelectorAll(".seat");
 let selectedSeats = parseInt(document.getElementById("seat-count").innerText);
 let leftSeat = parseInt(document.getElementById("seat-left").innerText);
 let totalPrice = 0;
