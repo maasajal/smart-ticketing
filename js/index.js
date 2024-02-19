@@ -1,12 +1,3 @@
-// function totalSeat() {
-//   const totalSeat = seatSelection("A1");
-//   setBgColorById("A1");
-// }
-
-//     const initialScore = getTextElementValueById("initial-score");
-//     const currentScore = initialScore + 1;
-//     setTextElementValueById("initial-score", currentScore);
-
 const seats = document.querySelectorAll(".kbd");
 // for (let seat of seats) {
 //   seat.addEventListener("click", function () {
@@ -18,24 +9,51 @@ const seats = document.querySelectorAll(".kbd");
 //     console.log(seatLeft);
 //   });
 // }
+let seatSelected = 0;
 let totalPrice = 0;
 for (let i = 0; i < seats.length; i++) {
   const seat = seats[i];
   seat.addEventListener("click", function () {
     const selectedSeat = seat.innerText;
-    setBgColorById(selectedSeat);
+    setBtnStyleById(selectedSeat);
+    console.log(selectedSeat);
+
+    // Count down how many seat left
+    let initialSeat = getTextElementValueById("seat-left");
+    const leftedSeat = initialSeat - 1;
+    setTextElementValueById("seat-left", leftedSeat);
+
+    // Count down how many seat left
+    let countSeat = getTextElementValueById("seat-count");
+    seatSelected = countSeat + 1;
+    setTextElementValueById("seat-count", seatSelected);
+
+    // created seat selection paragraph
     const seatDetails = document.getElementById("seat-details");
     const p = document.createElement("p");
-    p.innerText = `${selectedSeat} Economy 550`;
+    const spanSeat = document.createElement("span");
+    const spanEco = document.createElement("span");
+    const spanPrice = document.createElement("span");
+    spanSeat.innerText = selectedSeat;
+    spanEco.innerText = "Economy";
+    spanPrice.innerText = "550";
+
+    p.appendChild(spanSeat);
+    p.appendChild(spanEco);
+    p.appendChild(spanPrice);
+
     seatDetails.appendChild(p);
+    p.classList.add("flex", "justify-between");
+
     // Price and discount calculation
     totalPrice += 550;
     setTextElementValueById("total-price", totalPrice);
     setTextElementValueById("discounted-price", totalPrice);
-    console.log(totalPrice);
   });
+  
 }
 
+// Apply coupons and calculate the price
 const couponApply = document.getElementById("coupon-apply");
 couponApply.addEventListener("click", function () {
   const couponInput = document.getElementById("coupon-code").value;
@@ -57,9 +75,3 @@ couponApply.addEventListener("click", function () {
     alert("Invalid Coupon!");
   }
 });
-
-// if (seats === 4) {
-//   const totalSeat = getTextElementValueById("seat-left");
-//   const seatLeft = totalSeat - 1;
-//   console.log(seatLeft);
-// }

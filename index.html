@@ -181,7 +181,7 @@
       <!-- Ticket details and seat plan -->
       <section
         id="paribahan"
-        class="mt-32 p-32 bg-[#F7F8F8] border-t-2 border-[#1DD100] rounded-tl-[88px] rounded-tr-[88px]"
+        class="mt-32 p-12 md:p-32 bg-[#F7F8F8] border-t-2 border-[#1DD100] rounded-tl-[88px] rounded-tr-[88px]"
       >
         <div class="text-center">
           <h2 class="text-5xl font-bold">Panku Paribahan</h2>
@@ -193,7 +193,7 @@
         <!-- Example ticket -->
         <div class="flex flex-col md:flex-row gap-5 pr-12 rounded-3xl bg-white">
           <div class="flex-1 p-8 gap-5">
-            <div class="flex flex-col md:flex-row justify-between">
+            <div class="flex flex-col md:flex-row justify-between gap-5">
               <div class="flex gap-4 w-full">
                 <img src="./images/bus-logo.png" alt="bus logo" />
                 <div>
@@ -211,11 +211,11 @@
             <div
               class="bg-[#F7F8F8] p-8 rounded-3xl mt-5 divide-y divide-dashed"
             >
-              <div class="flex flex-col md:flex-row justify-between pb-5">
+              <div class="flex flex-col sm:flex-row justify-between pb-5">
                 <p>Route</p>
                 <p>Dhaka-Jashore</p>
               </div>
-              <div class="flex flex-col md:flex-row justify-between py-5">
+              <div class="flex flex-col sm:flex-row justify-between py-5">
                 <p>Departure Time</p>
                 <p>9:00 PM</p>
               </div>
@@ -227,8 +227,12 @@
             </div>
           </div>
           <!-- Ticket price -->
-          <div class="flex flex-row items-center">
-            <img src="./images/info-devider.png" alt="info devider" />
+          <div class="flex flex-row items-center justify-center">
+            <img
+              class="hidden md:block"
+              src="./images/info-devider.png"
+              alt="info devider"
+            />
             <div class="flex flex-col items-center">
               <img src="./images/fare.png" alt="fare" />
               <h3 class="text-3xl font-bold">550 Taka</h3>
@@ -238,10 +242,10 @@
         </div>
         <!-- Select your seat: seat plan section start -->
         <section
-          class="grid grid-rows-1 md:grid-cols-5 gap-5 my-5 p-5 bg-white rounded-3xl font-inter"
+          class="grid grid-cols-1 md:grid-cols-5 gap-5 my-5 p-5 bg-white rounded-3xl font-inter"
         >
           <!-- seat selection -->
-          <div class="md:col-span-3">
+          <div class="col-span-5 md:col-span-3">
             <h3 class="mb-3">Select your seat</h3>
             <div class="flex justify-between border-y border-dashed py-3">
               <div class="flex gap-2">
@@ -373,40 +377,18 @@
             </div>
           </div>
           <!-- Calculate ticket price -->
-          <div class="md:col-span-2 md:border-l-2 border-dashed pl-5">
+          <div
+            class="col-span-5 md:col-span-2 md:border-l-2 border-dashed pl-5"
+          >
             <h3 class="mb-3 border-b border-dashed pb-5">Select your seat</h3>
             <div class="bg-[#F7F8F8] rounded-3xl p-8">
-              <!-- <div class="overflow-x-auto">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th>
-                        Seat<span
-                          id="seat-count"
-                          class="badge bg-[#1DD100] text-white font-bold"
-                          >2</span
-                        >
-                      </th>
-                      <th>Class</th>
-                      <th>Price</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td><span id="selected-seat">A1</span></td>
-                      <td>Economy</td>
-                      <td>550</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div> -->
               <div id="seat-details" class="divide-y divide-dashed">
                 <p class="flex justify-between">
                   <b
                     >Seat<span
                       id="seat-count"
                       class="badge bg-[#1DD100] text-white font-bold"
-                      >2</span
+                      >0</span
                     ></b
                   >
                   <b>Class</b>
@@ -425,24 +407,27 @@
               </div>
               <!-- coupon input -->
               <div id="coupon" class="bg-white p-2 rounded-xl">
-                <input
-                  id="coupon-code"
-                  type="text"
-                  placeholder="Have any coupon?"
-                  class="input"
-                />
-                <button
-                  id="coupon-apply"
-                  class="btn bg-[#1DD100] text-white font-inter font-semibold rounded-xl"
-                >
-                  Apply
-                </button>
+                <div class="join flex justify-between">
+                  <input
+                    id="coupon-code"
+                    class="input join-item border-none w-full"
+                    type="text"
+                    placeholder="Have any coupon?"
+                  />
+                  <button
+                    id="coupon-apply"
+                    class="btn join-item bg-[#1DD100] text-white font-inter font-semibold rounded-xl"
+                  >
+                    Apply
+                  </button>
+                </div>
               </div>
               <div class="flex justify-between my-4">
                 <h3 class="text-xl">Grand Total</h3>
                 <h3 class="text-xl">BDT <span id="discounted-price"></span></h3>
               </div>
             </div>
+            <!-- Passenger info form -->
             <div>
               <form action="">
                 <label class="form-control w-full">
@@ -477,7 +462,7 @@
                     <span class="label-text font-semibold">Email ID</span>
                   </div>
                   <input
-                    type="number"
+                    type="email"
                     placeholder="Enter your email id"
                     class="input input-bordered w-full"
                   />
