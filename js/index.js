@@ -9,24 +9,13 @@ const seats = document.querySelectorAll(".kbd");
 //     console.log(seatLeft);
 //   });
 // }
-let seatSelected = 0;
+let selectedSeats = 0;
 let totalPrice = 0;
 for (let i = 0; i < seats.length; i++) {
   const seat = seats[i];
   seat.addEventListener("click", function () {
+
     const selectedSeat = seat.innerText;
-    setBtnStyleById(selectedSeat);
-    console.log(selectedSeat);
-
-    // Count down how many seat left
-    let initialSeat = getTextElementValueById("seat-left");
-    const leftedSeat = initialSeat - 1;
-    setTextElementValueById("seat-left", leftedSeat);
-
-    // Count down how many seat left
-    let countSeat = getTextElementValueById("seat-count");
-    seatSelected = countSeat + 1;
-    setTextElementValueById("seat-count", seatSelected);
 
     // created seat selection paragraph
     const seatDetails = document.getElementById("seat-details");
@@ -42,15 +31,37 @@ for (let i = 0; i < seats.length; i++) {
     p.appendChild(spanEco);
     p.appendChild(spanPrice);
 
-    seatDetails.appendChild(p);
+    // seatDetails.appendChild(p);
     p.classList.add("flex", "justify-between");
+
+    const isSeatSelected = seat.classList.contains("bg-[#1DD100]");
+    if (isSeatSelected) {
+      seat.classList.remove("bg-[#1DD100]", "text-white");
+      selectedSeats--;
+    } else {
+      if (selectedSeats >= 4) {
+        alert("You cannot buy more than 4 seats");
+        return;
+      }
+      // setBtnStyleById(selectedSeat);
+      seat.classList.add("bg-[#1DD100]", "text-white");
+      selectedSeats++;
+      seatDetails.appendChild(p);
+    }
+    // Count down how many seat left
+    let initialSeat = getTextElementValueById("seat-left");
+    const leftSeat = initialSeat - 1;
+    setTextElementValueById("seat-left", leftSeat);
+
+    // Count up how many seats selected
+    // selectedSeats++;
+    setTextElementValueById("seat-count", selectedSeats);
 
     // Price and discount calculation
     totalPrice += 550;
     setTextElementValueById("total-price", totalPrice);
     setTextElementValueById("discounted-price", totalPrice);
   });
-  
 }
 
 // Apply coupons and calculate the price
